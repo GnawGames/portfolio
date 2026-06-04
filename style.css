@@ -147,38 +147,58 @@ body {
 /* PROJECTS */
 
 .project-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.5rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
 }
 
-.project-card {
-  background: #171923;
-  padding: 2rem;
-  border-radius: 16px;
-  transition: 0.3s ease;
-  border: 1px solid rgba(255,255,255,0.06);
+.image-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+    height: 350px;
+    text-decoration: none;
+    color: white;
+    border: 1px solid rgba(255,255,255,0.08);
 }
 
-.project-card:hover {
-  transform: translateY(-6px);
-  border-color: rgba(255,255,255,0.15);
+.image-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
 }
 
-.project-card h4 {
-  margin-bottom: 1rem;
-  font-size: 1.3rem;
+.image-card:hover img {
+    transform: scale(1.08);
 }
 
-.project-card p {
-  color: #b5b5b5;
-  margin-bottom: 1rem;
+.project-overlay {
+    position: absolute;
+    inset: 0;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    padding: 2rem;
+
+    background:
+        linear-gradient(
+            to top,
+            rgba(0,0,0,0.85) 0%,
+            rgba(0,0,0,0.5) 40%,
+            rgba(0,0,0,0.1) 100%
+        );
 }
 
-.project-card a {
-  text-decoration: none;
-  color: white;
-  font-weight: 600;
+.project-overlay h3 {
+    font-size: 2rem;
+    margin-bottom: .5rem;
+}
+
+.project-overlay p {
+    color: rgba(255,255,255,.8);
 }
 
 /* TIMELINE */
@@ -378,4 +398,496 @@ body {
     font-size: 2.8rem;
   }
 
+}
+
+
+
+/* ABOUT PAGE */
+
+.about-section {
+    padding: 7rem 0;
+}
+
+.about-content {
+    max-width: 850px;
+    margin: auto;
+}
+
+.about-content h2 {
+    font-size: 3rem;
+    margin-bottom: 2rem;
+}
+
+.about-content p {
+    color: #b5b5b5;
+    font-size: 1.1rem;
+    line-height: 1.9;
+    margin-bottom: 1.5rem;
+}
+
+/* IMAGE BREAKS */
+
+.image-break {
+    position: relative;
+    max-width: 1200px;
+    margin: 5rem auto;
+    padding: 0 2rem;
+}
+
+.image-break img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+
+    border-radius: 20px;
+
+    border: 1px solid rgba(255,255,255,0.08);
+
+    box-shadow:
+        0 20px 50px rgba(0,0,0,0.5),
+        0 0 0 1px rgba(255,255,255,0.03);
+
+    display: block;
+}
+
+
+
+/* MOBILE */
+
+@media (max-width: 768px) {
+
+    .about-content h2 {
+        font-size: 2rem;
+    }
+
+    .image-break img {
+        height: 300px;
+    }
+
+}
+
+.image-break img {
+    transition: transform 0.5s ease;
+}
+
+.image-break:hover img {
+    transform: scale(1.02);
+}
+
+
+
+
+/* PROJECT DETAIL PAGES */
+
+.project-hero {
+    position: relative;
+    height: 70vh;
+    min-height: 500px;
+    overflow: hidden;
+}
+
+.project-hero img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.project-hero-overlay {
+    position: absolute;
+    inset: 0;
+
+    display: flex;
+    align-items: flex-end;
+
+    background: linear-gradient(
+        to top,
+        rgba(0,0,0,.9),
+        rgba(0,0,0,.3)
+    );
+}
+
+.project-hero-content {
+    padding: 4rem;
+    max-width: 900px;
+}
+
+.project-hero-content h1 {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+}
+
+.project-page-section {
+    padding: 6rem 0;
+}
+
+.project-page-content {
+    max-width: 900px;
+    margin: auto;
+}
+
+.project-page-content h2 {
+    margin-bottom: 1.5rem;
+    font-size: 2.5rem;
+}
+
+.project-page-content p {
+    color: #b5b5b5;
+    line-height: 1.9;
+    margin-bottom: 1.5rem;
+}
+
+.media-break {
+    width: 100%;
+    padding: 2rem 0;
+}
+
+.media-break video,
+.media-break img {
+    width: 100%;
+    max-width: 1200px;
+    display: block;
+    margin: auto;
+    border-radius: 20px;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+
+.gallery img {
+    width: 100%;
+    border-radius: 15px;
+    height: 250px;
+    object-fit: cover;
+}
+
+.project-stats {
+    display: flex;
+    gap: 2rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+}
+
+.stat-card {
+    flex: 1;
+    min-width: 200px;
+    background: #171923;
+    padding: 2rem;
+    border-radius: 15px;
+}
+
+@media (max-width: 768px) {
+
+    .gallery {
+        grid-template-columns: 1fr;
+    }
+
+    .project-hero-content h1 {
+        font-size: 2.5rem;
+    }
+}
+
+/* SPECIAL TITLE FONTS */
+
+/* Dismay Title */
+.dismay-title {
+    font-family: 'VCR OSD Mono', monospace;
+    font-size: 4rem;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+}
+
+/* Horror Hunt Title */
+@font-face {
+    font-family: 'DCC Ash';
+    src: url('../fonts/dcc-ash.ttf') format('truetype');
+}
+
+.dcc-font {
+    font-family: 'DCC Ash', serif;
+    font-size: 4rem;
+    letter-spacing: 8px;
+    text-transform: uppercase;
+}
+
+
+
+/* Downloadable Link Color */
+
+a {
+  color: rgb(0, 132, 255);
+}
+
+/* Lightbox Background */
+.lightboxOverlay {
+    background-color: #000 !important;
+    opacity: 0.95 !important;
+}
+
+/* Lightbox Container */
+.lb-outerContainer {
+    background-color: #111 !important;
+}
+
+/* Image Container */
+.lb-container {
+    background-color: #111 !important;
+}
+
+/* Disable transition flashes */
+.lb-image {
+    transition: none !important;
+}
+
+
+/* Background gradient */
+body {
+    background:
+        radial-gradient(circle at top left,
+        rgba(0,132,255,.08),
+        transparent 40%),
+
+        radial-gradient(circle at bottom right,
+        rgba(120,60,255,.08),
+        transparent 40%),
+
+        #0f1117;
+}
+
+
+/* glow on important titles */
+.hero h2,
+.page-hero h1 {
+    text-shadow:
+        0 0 30px rgba(255,255,255,.08);
+}
+
+
+/* Navbar animations */
+.nav-links a {
+    position: relative;
+}
+
+.nav-links a::after {
+    content: "";
+    position: absolute;
+
+    left: 0;
+    bottom: -6px;
+
+    width: 0;
+    height: 2px;
+
+    background: white;
+
+    transition: width .3s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+
+/* Card movement animations */
+.card,
+.experience-card,
+.stat-card {
+    transition:
+        transform .3s ease,
+        box-shadow .3s ease,
+        border-color .3s ease;
+}
+
+.card:hover,
+.experience-card:hover,
+.stat-card:hover {
+    transform: translateY(-8px);
+
+    box-shadow:
+        0 15px 40px rgba(0,0,0,.35);
+
+    border-color:
+        rgba(255,255,255,.15);
+}
+
+/* Divider Lines Index */
+.section-title {
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.section-title::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    bottom: 0;
+
+    width: 80px;
+    height: 3px;
+
+    background:
+        linear-gradient(
+            to right,
+            #0084ff,
+            transparent
+        );
+}
+
+/* Divider Lines Other Pages */
+
+.section-headers {
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.section-headers::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    bottom: 0;
+
+    width: 120px;
+    height: 3px;
+
+    background:
+        linear-gradient(
+            to right,
+            #0084ff,
+            transparent
+        );
+}
+
+
+
+/* Card Glows */
+.image-card::before {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(0,132,255,.15),
+            transparent 40%
+        );
+
+    opacity: 0;
+
+    transition: opacity .4s ease;
+
+    z-index: 1;
+}
+
+.image-card:hover::before {
+    opacity: 1;
+}
+
+
+
+/* Timeline Improvement */
+.timeline-item {
+    position: relative;
+}
+
+.timeline-item::before {
+    content: "";
+
+    position: absolute;
+
+    left: -8px;
+    top: 5px;
+
+    width: 14px;
+    height: 14px;
+
+    border-radius: 50%;
+
+    background: #0084ff;
+
+    box-shadow:
+        0 0 15px rgba(0,132,255,.5);
+}
+
+
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #0f1117;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #2a2d36;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #0084ff;
+}
+
+.hero {
+    position: relative;
+}
+
+.hidden {
+    opacity: 0;
+    transform: translateY(40px);
+}
+
+.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Image Shadow Glow Effect */
+.image-break img,
+.project-media img,
+.project-hero img {
+    box-shadow:
+        0 0 0 1px rgba(255,255,255,0.05),
+        0 20px 50px rgba(0,0,0,0.5);
+}
+
+/* Image Card Hover Shadow Effect */
+.image-card:hover {
+    box-shadow:
+        0 25px 60px rgba(0,0,0,.45);
+}
+
+
+/* Gallery Image Hover Effect */
+.gallery img {
+    transition:
+        transform .3s ease,
+        box-shadow .3s ease;
+}
+
+.gallery img:hover {
+    transform: scale(1.04);
+
+    box-shadow:
+        0 15px 40px rgba(0,0,0,.45);
+}
+
+/* Logo Hover Effect */
+.logo {
+    transition:
+        color .3s ease,
+        text-shadow .3s ease;
+}
+
+.logo:hover {
+    text-shadow:
+        0 0 15px rgba(255,255,255,.3);
 }
